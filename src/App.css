@@ -1,5 +1,65 @@
-.App {
-  text-align: center;
-  height: 100%;
-  width: 100%;
+html, body, .App, #root{
+    height:                     100%;
+    min-height:                 100%;
+    max-height:                 100%;
+    width:                      100%;
+    min-width:                  100%;
+    max-width:                  100%;
+    position:                   relative;     
+    overflow-x:                 hidden;
+    scroll-behavior:            smooth;
+    background-color:           #020202;
+    -webkit-tap-highlight-color: transparent;
+    display:                    flex;
+    justify-content:            center;
+    align-items:                center;
+    background:                 rgb(55,0,255);
+    background:                 linear-gradient(12deg, rgb(53, 0, 243) 0%, rgba(40,166,237,1) 90%, rgba(40,166,237,1) 100%);
+
+}
+
+.App{
+    touch-action:               manipulation;
+    touch-action:               pan-x pan-y;
+    transition:                 all 1s;
+}
+  
+::selection{
+    background-color:           rgb(58, 77, 175);
+    color:                      white;
+}
+
+::-webkit-scrollbar{
+    width:                      8px;
+    box-shadow:             inset 0 10px 10px 10px #3509f3;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow:             inset 0 10px 10px 10px #3509f3;
+}
+  
+::-webkit-scrollbar-thumb{    
+    border-radius:              50px;
+    box-shadow:                 inset 0 10px 10px 10px #387bf1;
+    border:                     solid 1px transparent;
+}
+  
+::-webkit-scrollbar-thumb:hover{
+    border-radius:              50px;
+    box-shadow:                 inset 0 10px 10px 10px #468aff;
+    border:                     solid 1px transparent;
+}
+
+.noSelect{
+    -webkit-touch-callout:      none;
+      -webkit-user-select:      none;
+       -khtml-user-select:      none;
+         -moz-user-select:      none;
+          -ms-user-select:      none;
+              user-select:      none;
+}
+
+.notAllowed{
+    cursor:                     not-allowed;
+    opacity:                    .3;
 }

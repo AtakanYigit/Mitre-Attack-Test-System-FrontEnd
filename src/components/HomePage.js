@@ -1,19 +1,14 @@
-import React, { Component } from 'react'
+import React from "react"
+import "./HomePage.css"
 
-export default class HomePage extends Component {
-  render() {
-    return (
-      <div
-        style={{
-          height: '100%',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        Welcome To HomePage
-      </div>
+const HomePage = () =>{
+    return(
+        <>
+            <div className = "homeContainer">
+                <h1>Welcome To Home Page</h1>
+            </div>
+        </>
     )
-  }
 }
+
+export default HomePage;
