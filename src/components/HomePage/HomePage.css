@@ -1,0 +1,45 @@
+h1{
+    font-family:            'Roboto';
+    font-size:              2rem;
+    font-weight:            600;
+    margin-top:             64px!important;
+    letter-spacing:         1px;
+    width:                  80%;
+    text-align:             center;
+    color:                  #387bf1;
+}
+
+.homeContainer{
+    height:                 40%;
+    width:                  40%;
+    display:                flex;
+    flex-direction:         column;
+    justify-content:        flex-start;
+    align-items:            center;
+    gap:                    5vh;
+    border-radius:          16px;
+    border:                 0.5px solid lightgray;
+    background:             rgb(255,255,255);
+}
+
+a{
+    font-family:            'Roboto';
+    font-size:              1.2rem;
+    text-decoration:        none;
+    width:                  80%;
+    padding:                16px 8px!important;
+    border-radius:          4px;
+    display:                flex;
+    justify-content:        center;
+    transition:             .3s all;
+    color:                  white;
+    background-color:       #387bf1;
+}
+
+a:not(:first-of-type){
+    margin-top:             -3vh;
+}
+
+a:hover{
+    background-color:       #5b93f5;
+}
