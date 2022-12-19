@@ -1,25 +1,25 @@
-h1{
-    font-family:            'Roboto';
-    font-size:              2rem;
-    font-weight:            600;
-    margin-top:             64px!important;
-    letter-spacing:         1px;
-    width:                  80%;
-    text-align:             center;
-    color:                  #387bf1;
-}
-
 .homeContainer{
     height:                 40%;
     width:                  40%;
     display:                flex;
     flex-direction:         column;
-    justify-content:        flex-start;
+    justify-content:        center;
     align-items:            center;
     gap:                    5vh;
     border-radius:          16px;
     border:                 0.5px solid lightgray;
     background:             rgb(255,255,255);
+}
+
+.homeContainer h1{
+    font-family:            'Roboto';
+    font-size:              2rem;
+    font-weight:            600;
+    letter-spacing:         1px;
+    width:                  80%;
+    text-align:             center;
+    margin-bottom:          -16px;
+    color:                  #387bf1;
 }
 
 a{
@@ -42,4 +42,12 @@ a:not(:first-of-type){
 
 a:hover{
     background-color:       #5b93f5;
+}
+
+a:last-of-type{
+    background-color:       rgb(230, 79, 162);
+}
+
+a:last-of-type:hover{
+    background-color:       rgb(255, 93, 182);
 }

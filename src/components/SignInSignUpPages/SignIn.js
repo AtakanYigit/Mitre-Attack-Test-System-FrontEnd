@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import {useEffect, useState} from "react"
 import {useNavigate}    from "react-router-dom";
 import AuthServices     from "../../services/AuthServices"
 import TextField        from "@material-ui/core/TextField"
@@ -17,8 +17,16 @@ const SignIn = () =>{
     const [passwordFlag, setPasswordFlag] = useState(false);
     const [isOpen,       setIsOpen]       = useState(false);
     const [message,      setMessage]      = useState("");
+    let   navigate                        = useNavigate();
 
-    let navigate = useNavigate();
+    useEffect(() => {
+        const cookie = document.cookie;
+        if(cookie.indexOf("userCookie") === -1){
+            console.log("Cookie Not Found");
+        }else{
+            navigate("/HomePage");
+        }
+    }, []);
 
     const handleClose = (e, reason) =>{
         if(reason === "clickaway"){return}
@@ -30,7 +38,7 @@ const SignIn = () =>{
         setter(value);
     }
 
-    const handleSignUp = () =>{
+    const handleSignUpRedirect = () =>{
         navigate("/signUp");
     }
 
@@ -52,8 +60,8 @@ const SignIn = () =>{
         if(userName !== "" && password !== ""){
             console.log("Acceptable")
             let data ={
-                UserName: userName,
-                Password: password,
+                UserName: document.getElementsByTagName("input")[0].value,
+                Password: document.getElementsByTagName("input")[1].value,
             }
             console.log("Posted: ", data)
 
@@ -61,11 +69,12 @@ const SignIn = () =>{
                 .then((data) =>{
                     console.log("Posted: ", data)
                     if(data.data.isSuccess){
+                        document.cookie = `userCookie=${userName}+${password}`;
                         navigate("/HomePage");
                     } else{
                         console.log("Something Went Wrong")
                         setIsOpen(true)
-                        setMessage("Login Unsuccessfully")
+                        setMessage("Login Unsuccessfull")
                     }
                 }).catch((error) =>{
                     console.log("Error : ", error)
@@ -89,9 +98,9 @@ const SignIn = () =>{
                                 label     = "UserName"
                                 variant   = "outlined"
                                 size      = "small"
-                                error     ={userNameFlag}
-                                value     ={userName}
-                                onChange  ={(e) => handleChange(e, setUserName)}/>
+                                error     = {userNameFlag}
+                                value     = {userName}
+                                onChange  = {(e) => handleChange(e, setUserName)}/>
 
                     <TextField className = "textField"
                                 type      = "password"
@@ -99,12 +108,12 @@ const SignIn = () =>{
                                 label     = "Password"
                                 variant   = "outlined"
                                 size      = "small"
-                                error     ={passwordFlag}
-                                value     ={password}
-                                onChange  ={(e) => handleChange(e, setPassword)}/>
+                                error     = {passwordFlag}
+                                value     = {password}
+                                onChange  = {(e) => handleChange(e, setPassword)}/>
                 </form>
                 <div className="buttons" style={{alignItems: "flex-start"}}>
-                    <Button className = "button" onClick ={handleSignUp} color = "primary">
+                    <Button className = "button" onClick ={handleSignUpRedirect} color = "primary">
                         Sign Up
                     </Button>
                     <Button className = "button" onClick ={handleSubmit} color = "primary" variant = "contained">

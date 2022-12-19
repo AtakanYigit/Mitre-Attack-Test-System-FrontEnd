@@ -1,11 +1,11 @@
-import React, {useState} from "react"
-import {useNavigate}     from "react-router-dom";
-import AuthServices      from "../../services/AuthServices.js"
-import TextField         from "@material-ui/core/TextField"
-import Button            from "@material-ui/core/Button"
-import Snackbar          from "@material-ui/core/Snackbar"
-import IconButton        from "@material-ui/core/IconButton"
-import CloseIcon         from "@material-ui/icons/Close"
+import {useState, useEffect} from "react"
+import {useNavigate}         from "react-router-dom";
+import AuthServices          from "../../services/AuthServices.js"
+import TextField             from "@material-ui/core/TextField"
+import Button                from "@material-ui/core/Button"
+import Snackbar              from "@material-ui/core/Snackbar"
+import IconButton            from "@material-ui/core/IconButton"
+import CloseIcon             from "@material-ui/icons/Close"
 import "./Sign.css"
 
 const authServices = new AuthServices()
@@ -19,8 +19,16 @@ const SignUp = () =>{
     const [confirmPasswordFlag, setConfirmPasswordFlag] = useState(false);
     const [isOpen,              setIsOpen]              = useState(false);
     const [message,             setMessage]             = useState("");
-
-    let navigate = useNavigate();
+    let   navigate                                      = useNavigate();
+    
+    useEffect(() => {
+        const cookie = document.cookie;
+        if(cookie.indexOf("userCookie") === -1){
+            console.log("Cookie Not Found");
+        }else{
+            navigate("/HomePage");
+        }
+    }, []);
 
     const handleClose = (e, reason) =>{
         if(reason === "clickaway"){
@@ -69,6 +77,7 @@ const SignUp = () =>{
                     .then((data) =>{
                         console.log("data : ", data)
                         if(data.data.isSuccess){
+                            document.cookie = `userCookie=${userName}`;
                             navigate("/HomePage");
                         }else{
                             setIsOpen(true);

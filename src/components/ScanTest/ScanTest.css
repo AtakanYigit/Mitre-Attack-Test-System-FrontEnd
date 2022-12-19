@@ -1,8 +1,8 @@
 .bruteForceContainer{
     min-height:             40%;
     max-height:             90%;
-    overflow-y:               auto;
-    width:                  40%;
+    overflow-y:             auto;
+    width:                  80%;
     display:                flex;
     flex-direction:         column;
     justify-content:        flex-start;
@@ -50,18 +50,32 @@ a:hover{
     flex-direction:         column;
     justify-content:        center;
     align-items:            center;
-    width:                  80%;
-    padding-bottom: 32px;
+    width:                  90%;
+    padding-bottom:         32px;
+    gap:                    64px;
 }
 
 .row{
     display:                flex;
     flex-direction:         row;
     justify-content:        space-between;
-    align-items:            center;
+    align-items:            flex-start;
     width:                  100%;
     padding:                10px 10%;
     border-radius:          8px;
+    overflow-y:             auto;
+    height:                 30vh;
+}
+
+.row:first-of-type{
+    height:                 auto;
+}
+
+.row:first-of-type p{
+    font-family:            'Roboto';
+    font-size:              2rem;
+    font-weight:            600;
+    color:                  #387bf1;
 }
 
 .rowAccessGranted{
