@@ -25,4 +25,4 @@ Project also includes registration and login processes.
 - Atakan Yiğit Çengeloğlu
 - İrem Batak
 ---
-Back-end repository - https://github.com/AtakanYigit/React-C-.NET-MYSQL---Mitre-Attack-Test-System
+Back-end repository - https://github.com/AtakanYigit/Mitre-Attack-Test-System-BackEnd
